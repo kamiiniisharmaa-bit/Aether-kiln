@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>ÆTHER & KILN — curated objects & apothecary</title>
+  <!-- modern font + fallback -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', monospace;
+      background-color: #FEFCF5;
+      color: #1E2A24;
+      scroll-behavior: smooth;
+    }
+
+    /* unique brand name: "ÆTHER & KILN" -> palette: obsidian, clay, mineral, pale amber */
+    :root {
+      --ak-obsidian: #1A2520;
+      --ak-clay: #C47A5C;
+      --ak-mineral: #4E6B5E;
+      --ak-amber: #E2C7A2;
+      --ak-smoke: #EAE5DB;
+      --ak-stone: #7D8D81;
+      --ak-shadow-sm: 0 6px 14px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0, 0, 0, 0.05);
+      --ak-shadow-md: 0 18px 32px -12px rgba(0, 0, 0, 0.08);
+      --transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+    }
+
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* ----- header & navigation ----- */
+    .site-header {
+      background: rgba(254, 252, 245, 0.92);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+
+    .nav-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .logo-wrapper {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .brand-mark {
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      background: linear-gradient(130deg, #1A2520 0%, #3C5A4C 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .ampersand {
+      font-size: 32px;
+      font-weight: 500;
+      color: var(--ak-clay);
+      margin: 0 2px;
+    }
+
+    .brand-suffix {
+      font-weight: 500;
+      font-size: 18px;
+      color: var(--ak-mineral);
+      letter-spacing: -0.2px;
+      border-left: 1px solid var(--ak-amber);
+      padding-left: 12px;
+      margin-left: 6px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--ak-obsidian);
+      transition: var(--transition);
+      font-size: 16px;
+    }
+
+    .nav-links a:hover {
+      color: var(--ak-clay);
+    }
+
+    .nav-icons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-icons i {
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--ak-obsidian);
+      transition: var(--transition);
+    }
+
+    .nav-icons i:hover {
+      color: var(--ak-clay);
+      transform: translateY(-1px);
+    }
+
+    /* hero section — unique headline */
+    .hero {
+      padding: 64px 0 56px;
+      background: #FDF9F2;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 10% 30%, rgba(196, 122, 92, 0.02) 0%, transparent 70%);
+      z-index: -1;
+    }
+
+    .hero-grid {
+      display: flex;
+      align-items: center;
+      gap: 56px;
+      flex-wrap: wrap;
+    }
+
+    .hero-content {
+      flex: 1.2;
+      min-width: 280px;
+    }
+
+    .hero-badge {
+      background: var(--ak-clay);
+      color: white;
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 60px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      margin-bottom: 24px;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.6rem, 7vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--ak-obsidian);
+      margin-bottom: 20px;
+    }
+
+    .hero-highlight {
+      color: var(--ak-clay);
+      border-bottom: 2px solid var(--ak-amber);
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      color: #415a4b;
+      margin-bottom: 32px;
+      max-width: 460px;
+    }
+
+    .btn-primary {
+      background: var(--ak-obsidian);
+      color: white;
+      border: none;
+      padding: 12px 32px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: inherit;
+    }
+
+    .btn-primary i {
+      transition: transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--ak-clay);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px -8px rgba(196, 122, 92, 0.4);
+    }
+
+    .btn-primary:hover i {
+      transform: translateX(4px);
+    }
+
+    .hero-image {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      border-radius: 36px;
+      box-shadow: var(--ak-shadow-md);
+      transition: transform 0.4s ease;
+    }
+
+    .hero-image img:hover {
+      transform: scale(1.01);
+    }
+
+    /* featured products section */
+    .featured {
+      padding: 80px 0;
+      background: white;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .section-header h2 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      color: var(--ak-obsidian);
+    }
+
+    .section-header span {
+      color: var(--ak-clay);
+    }
+
+    .divider {
+      width: 70px;
+      height: 2px;
+      background: var(--ak-amber);
+      margin: 16px auto 0;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 40px;
+    }
+
+    .product-card {
+      background: #ffffff;
+      border-radius: 32px;
+      transition: var(--transition);
+      overflow: hidden;
+      box-shadow: var(--ak-shadow-sm);
+      border: 1px solid #f0ebe2;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 40px -16px rgba(0, 0, 0, 0.12);
+      border-color: #e2d9ce;
+    }
+
+    .product-img {
+      width: 100%;
+      aspect-ratio: 1 / 1.05;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s;
+    }
+
+    .product-card:hover .product-img {
+      transform: scale(1.02);
+    }
+
+    .product-info {
+      padding: 20px 18px 24px;
+    }
+
+    .product-title {
+      font-weight: 600;
+      font-size: 1.25rem;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .product-category {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--ak-stone);
+      margin-bottom: 8px;
+    }
+
+    .product-price {
+      font-weight: 700;
+      color: var(--ak-clay);
+      font-size: 1.2rem;
+    }
+
+    .rating {
+      color: #e4b363;
+      font-size: 0.8rem;
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .add-to-cart {
+      margin-top: 18px;
+      background: transparent;
+      border: 1.5px solid var(--ak-mineral);
+      padding: 8px 0;
+      width: 100%;
+      border-radius: 40px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: inherit;
+      color: var(--ak-obsidian);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .add-to-cart:hover {
+      background: var(--ak-obsidian);
+      border-color: var(--ak-obsidian);
+      color: white;
+    }
+
+    /* unique editorial section with image */
+    .editorial {
+      background: var(--ak-smoke);
+      padding: 80px 0;
+    }
+
+    .editorial-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 56px;
+    }
+
+    .editorial-img {
+      flex: 1;
+    }
+
+    .editorial-img img {
+      width: 100%;
+      border-radius: 36px;
+      box-shadow: 0 24px 32px -18px rgba(0,0,0,0.2);
+    }
+
+    .editorial-text {
+      flex: 1;
+    }
+
+    .editorial-text h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--ak-obsidian);
+    }
+
+    .editorial-text p {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #2e443b;
+      margin-bottom: 28px;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--ak-obsidian);
+      padding: 10px 28px;
+      border-radius: 40px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: inherit;
+    }
+
+    .btn-outline:hover {
+      background: var(--ak-obsidian);
+      color: white;
+      border-color: var(--ak-obsidian);
+    }
+
+    /* footer */
+    .footer {
+      background: #1C2621;
+      color: #ddd9cf;
+      padding: 48px 0 32px;
+      margin-top: 20px;
+    }
+
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h4 {
+      color: var(--ak-amber);
+      margin-bottom: 18px;
+      font-weight: 500;
+    }
+
+    .footer-col p, .footer-col a {
+      color: #bcb7ab;
+      text-decoration: none;
+      line-height: 1.6;
+    }
+
+    .footer-col a:hover {
+      color: var(--ak-clay);
+    }
+
+    .social-icons i {
+      font-size: 1.4rem;
+      margin-right: 16px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .copyright {
+      text-align: center;
+      border-top: 1px solid #2f3d36;
+      padding-top: 28px;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 800px) {
+      .container {
+        padding: 0 20px;
+      }
+      .nav-links {
+        gap: 20px;
+      }
+      .hero-grid, .editorial-inner {
+        flex-direction: column;
+      }
+      .product-grid {
+        gap: 24px;
+      }
+    }
+
+    /* toast alert simulation (simple) */
+    .toast-msg {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--ak-obsidian);
+      color: var(--ak-amber);
+      padding: 12px 28px;
+      border-radius: 48px;
+      font-weight: 500;
+      z-index: 200;
+      font-size: 0.9rem;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s;
+      backdrop-filter: blur(8px);
+      background: #1A2520e0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="toast-msg" id="cartToast">✨ added to your kiln — free shipping over $75</div>
+
+<header class="site-header">
+  <div class="container nav-flex">
+    <div class="logo-wrapper">
+      <span class="brand-mark">ÆTHER</span>
+      <span class="ampersand">&</span>
+      <span class="brand-mark">KILN</span>
+      <span class="brand-suffix">apothecary & objects</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="about.html">About Us</a>
+    </div>
+    <div class="nav-icons">
+      <i class="fas fa-search"></i>
+      <i class="fas fa-user"></i>
+      <i class="fas fa-shopping-bag" id="cartIconTrigger"></i>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- hero section with image (unique name: ÆTHER & KILN) -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">✦ new solstice collection ✦</div>
+        <h1>earth + alchemy,<br>crafted for <span class="hero-highlight">modern rituals</span></h1>
+        <p class="hero-description">Slow-made vessels, organic apothecary, and objects that hold intention. Discover the first drop of 2026.</p>
+        <button class="btn-primary" id="heroShopBtn">explore collection <i class="fas fa-arrow-right"></i></button>
+      </div>
+      <div class="hero-image">
+        <img src="https://picsum.photos/id/104/700/650" alt="Artisan ceramic vessels and dried botanicals on stone surface" loading="eager">
+      </div>
+    </div>
+  </section>
+
+  <!-- featured products with unique product names & images -->
+  <section class="featured">
+    <div class="container">
+      <div class="section-header">
+        <h2>signature <span>offerings</span></h2>
+        <div class="divider"></div>
+        <p style="margin-top: 12px; color: #5b6e62;">hand-selected, small-batch editions</p>
+      </div>
+      <div class="product-grid" id="productGrid">
+        <!-- product 1 -->
+        <div class="product-card" data-name="Obsidian Tether Diffuser" data-price="68">
+          <img class="product-img" src="https://picsum.photos/id/20/500/530" alt="Obsidian Tether Diffuser">
+          <div class="product-info">
+            <div class="product-title">
+              <span>Obsidian Tether Diffuser</span>
+              <span class="product-price">$68</span>
+            </div>
+            <div class="product-category">ULTRASONIC · STONE FINISH</div>
+            <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> 4.8</div>
+            <button class="add-to-cart" data-product="Obsidian Tether Diffuser" data-price="68"><i class="fas fa-plus-circle"></i> add to cart</button>
+          </div>
+        </div>
+        <!-- product 2 -->
+        <div class="product-card" data-name="Clay & Kozo Candle" data-price="48">
+          <img class="product-img" src="https://picsum.photos/id/66/500/530" alt="Clay & Kozo Candle handmade ceramic vessel">
+          <div class="product-info">
+            <div class="product-title">
+              <span>Clay & Kozo Candle</span>
+              <span class="product-price">$48</span>
+            </div>
+            <div class="product-category">VEGAN WAX · WOODY HERB</div>
+            <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 5.0</div>
+            <button class="add-to-cart" data-product="Clay & Kozo Candle" data-price="48"><i class="fas fa-plus-circle"></i> add to cart</button>
+          </div>
+        </div>
+        <!-- product 3: unique name + image -->
+        <div class="product-card" data-name="Guilded Hourglass Vessel" data-price="124">
+          <img class="product-img" src="https://picsum.photos/id/29/500/530" alt="Guilded Hourglass Vessel ceramic art">
+          <div class="product-info">
+            <div class="product-title">
+              <span>Guilded Hourglass Vessel</span>
+              <span class="product-price">$124</span>
+            </div>
+            <div class="product-category">LIMITED · SCULPTURAL</div>
+            <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> 4.6</div>
+            <button class="add-to-cart" data-product="Guilded Hourglass Vessel" data-price="124"><i class="fas fa-plus-circle"></i> add to cart</button>
+          </div>
+        </div>
+        <!-- product 4 -->
+        <div class="product-card" data-name="Verdant Embers Incense" data-price="32">
+          <img class="product-img" src="https://picsum.photos/id/96/500/530" alt="Verdant Embers Incense bundle with tray">
+          <div class="product-info">
+            <div class="product-title">
+              <span>Verdant Embers Incense</span>
+              <span class="product-price">$32</span>
+            </div>
+            <div class="product-category">PALO SANTO + CEDAR</div>
+            <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 4.9</div>
+            <button class="add-to-cart" data-product="Verdant Embers Incense" data-price="32"><i class="fas fa-plus-circle"></i> add to cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- unique editorial image block: "the kiln chronicles" -->
+  <section class="editorial">
+    <div class="container editorial-inner">
+      <div class="editorial-img">
+        <img src="https://picsum.photos/id/78/600/500" alt="Artisan hands shaping clay on wheel, warm studio light">
+      </div>
+      <div class="editorial-text">
+        <h3>The Kiln Chronicles</h3>
+        <p>Every piece is born from slow craft — collaborations with independent potters, botanical alchemists, and metalworkers. We honor imperfect textures, raw edges, and the poetry of utility.</p>
+        <button class="btn-outline" id="storyBtn">read the manifesto <i class="fas fa-leaf" style="margin-left: 6px;"></i></button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>ÆTHER & KILN</h4>
+        <p>Curated objects for grounded living.<br>Brooklyn / Los Angeles / Kyoto</p>
+      </div>
+      <div class="footer-col">
+        
+      </div>
+    </div>
+    <div class="copyright">
+      © 2026 ÆTHER & KILN — all textures reserved · slow living
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    const toastEl = document.getElementById('cartToast');
+    let toastTimeout;
+
+    function showMessage(msg) {
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastEl.textContent = msg || '✨ added to your kiln — free shipping over $75';
+      toastEl.style.opacity = '1';
+      toastTimeout = setTimeout(() => {
+        toastEl.style.opacity = '0';
+      }, 2200);
+    }
+
+    // handle add to cart for each dynamic button
+    const addButtons = document.querySelectorAll('.add-to-cart');
+    addButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const productName = btn.getAttribute('data-product') || 'item';
+        const price = btn.getAttribute('data-price') || '';
+        showMessage(`🪔 ${productName} added · $${price}`);
+        // micro interaction: change icon feedback
+        const originalIcon = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check"></i> added';
+        setTimeout(() => {
+          btn.innerHTML = originalIcon;
+        }, 900);
+      });
+    });
+
+    // hero shop button interactive
+    const heroBtn = document.getElementById('heroShopBtn');
+    if (heroBtn) {
+      heroBtn.addEventListener('click', () => {
+        showMessage('✨ solstice collection preview — free shipping unlocked');
+        document.querySelector('.featured')?.scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+
+    const storyBtn = document.getElementById('storyBtn');
+    if(storyBtn) {
+      storyBtn.addEventListener('click', () => {
+        showMessage('📖 “The imperfect is the new eternal” — ÆTHER & KILN');
+      });
+    }
+
+    const cartIcon = document.getElementById('cartIconTrigger');
+    if(cartIcon) {
+      cartIcon.addEventListener('click', () => {
+        showMessage('🛒 your kiln holds 0 items — start a ritual');
+      });
+    }
+
+    // optional hover effect on product images (already css)
+    console.log('ÆTHER & KILN — unique ecom homepage ready');
+  })();
+</script>
+</body>
+</html>

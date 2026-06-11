@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>ÆTHER & KILN · Terms of Service | Rituals & Commerce</title>
+  <!-- modern font -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', monospace;
+      background-color: #FEFCF5;
+      color: #1E2A24;
+      scroll-behavior: smooth;
+    }
+
+    /* same unique brand palette: ÆTHER & KILN */
+    :root {
+      --ak-obsidian: #1A2520;
+      --ak-clay: #C47A5C;
+      --ak-mineral: #4E6B5E;
+      --ak-amber: #E2C7A2;
+      --ak-smoke: #EAE5DB;
+      --ak-stone: #7D8D81;
+      --ak-shadow-sm: 0 6px 14px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0, 0, 0, 0.05);
+      --ak-shadow-md: 0 18px 32px -12px rgba(0, 0, 0, 0.08);
+      --transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* header identical to homepage (consistent branding) */
+    .site-header {
+      background: rgba(254, 252, 245, 0.94);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .logo-wrapper {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      background: linear-gradient(130deg, #1A2520 0%, #3C5A4C 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .ampersand {
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--ak-clay);
+      margin: 0 2px;
+    }
+
+    .brand-suffix {
+      font-weight: 500;
+      font-size: 16px;
+      color: var(--ak-mineral);
+      letter-spacing: -0.2px;
+      border-left: 1px solid var(--ak-amber);
+      padding-left: 12px;
+      margin-left: 6px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--ak-obsidian);
+      transition: var(--transition);
+      font-size: 16px;
+    }
+
+    .nav-links a:hover {
+      color: var(--ak-clay);
+    }
+
+    .nav-icons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-icons i {
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--ak-obsidian);
+      transition: var(--transition);
+    }
+
+    .nav-icons i:hover {
+      color: var(--ak-clay);
+    }
+
+    /* Terms page hero */
+    .terms-hero {
+      background: #FDF9F2;
+      padding: 48px 0 32px;
+      border-bottom: 1px solid #f0e7dc;
+    }
+
+    .terms-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ak-obsidian);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .terms-title i {
+      color: var(--ak-clay);
+      font-size: 2rem;
+    }
+
+    .last-updated {
+      margin-top: 12px;
+      color: var(--ak-stone);
+      font-size: 0.85rem;
+      border-left: 3px solid var(--ak-amber);
+      padding-left: 16px;
+    }
+
+    /* main terms content */
+    .terms-content {
+      padding: 60px 0 80px;
+    }
+
+    .terms-grid {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .sidebar {
+      flex: 1.2;
+      min-width: 220px;
+      position: sticky;
+      top: 100px;
+      align-self: start;
+      background: #FCF9F4;
+      border-radius: 28px;
+      padding: 28px 20px;
+      border: 1px solid #efe6db;
+    }
+
+    .sidebar h4 {
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--ak-obsidian);
+      font-size: 1.2rem;
+    }
+
+    .toc-list {
+      list-style: none;
+    }
+
+    .toc-list li {
+      margin-bottom: 16px;
+    }
+
+    .toc-list a {
+      text-decoration: none;
+      color: var(--ak-mineral);
+      font-weight: 500;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
+
+    .toc-list a i {
+      font-size: 0.7rem;
+      color: var(--ak-clay);
+      opacity: 0.7;
+    }
+
+    .toc-list a:hover {
+      color: var(--ak-clay);
+      transform: translateX(4px);
+    }
+
+    .main-terms {
+      flex: 3;
+      min-width: 260px;
+    }
+
+    .terms-section {
+      margin-bottom: 48px;
+      scroll-margin-top: 100px;
+    }
+
+    .terms-section h2 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--ak-obsidian);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-left: 4px solid var(--ak-clay);
+      padding-left: 18px;
+    }
+
+    .terms-section h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 24px 0 12px 0;
+      color: #2c4238;
+    }
+
+    .terms-section p {
+      line-height: 1.6;
+      margin-bottom: 16px;
+      color: #2c3a34;
+    }
+
+    .terms-section ul, .terms-section ol {
+      margin: 16px 0 20px 28px;
+      line-height: 1.6;
+      color: #2f423a;
+    }
+
+    .terms-section li {
+      margin-bottom: 8px;
+    }
+
+    .highlight-box {
+      background: #F5EFE6;
+      padding: 20px 24px;
+      border-radius: 24px;
+      margin: 24px 0;
+      border-left: 6px solid var(--ak-clay);
+    }
+
+    .small-note {
+      font-size: 0.85rem;
+      color: var(--ak-stone);
+      margin-top: 12px;
+    }
+
+    hr {
+      margin: 32px 0;
+      border: 0;
+      height: 1px;
+      background: linear-gradient(90deg, #e2d5c8, transparent);
+    }
+
+    /* footer */
+    .footer {
+      background: #1C2621;
+      color: #ddd9cf;
+      padding: 48px 0 32px;
+    }
+
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h4 {
+      color: var(--ak-amber);
+      margin-bottom: 18px;
+      font-weight: 500;
+    }
+
+    .footer-col p, .footer-col a {
+      color: #bcb7ab;
+      text-decoration: none;
+      line-height: 1.6;
+    }
+
+    .footer-col a:hover {
+      color: var(--ak-clay);
+    }
+
+    .social-icons i {
+      font-size: 1.4rem;
+      margin-right: 16px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .copyright {
+      text-align: center;
+      border-top: 1px solid #2f3d36;
+      padding-top: 28px;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 800px) {
+      .container {
+        padding: 0 20px;
+      }
+      .sidebar {
+        position: static;
+        width: 100%;
+      }
+      .terms-grid {
+        flex-direction: column;
+      }
+      .nav-links {
+        gap: 18px;
+      }
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: var(--ak-obsidian);
+      color: white;
+      width: 46px;
+      height: 46px;
+      border-radius: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 99;
+      box-shadow: var(--ak-shadow-md);
+      transition: var(--transition);
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--ak-clay);
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-flex">
+    <a href="#" style="text-decoration: none;" id="homeLink">
+      <div class="logo-wrapper">
+        <span class="brand-mark">ÆTHER</span>
+        <span class="ampersand">&</span>
+        <span class="brand-mark">KILN</span>
+        <span class="brand-suffix">apothecary & objects</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="about.html">About Us</a>
+    </div>
+    <div class="nav-icons">
+      <i class="fas fa-search"></i>
+      <i class="fas fa-user"></i>
+      <i class="fas fa-shopping-bag"></i>
+    </div>
+  </div>
+</header>
+
+<section class="terms-hero">
+  <div class="container">
+    <div class="terms-title">
+      <i class="fas fa-scale-balanced"></i> 
+      <span>Terms of Service</span>
+      <span style="font-size: 1rem; background: #EAE0D5; padding: 4px 12px; border-radius: 40px; font-weight: normal;">ÆTHER & KILN · 2026</span>
+    </div>
+    <div class="last-updated">
+      <i class="far fa-calendar-alt"></i> Last revised: June 11, 2026 · these terms govern your use of the ÆTHER & KILN digital commerce platform and physical goods.
+    </div>
+  </div>
+</section>
+
+<div class="terms-content">
+  <div class="container">
+    <div class="terms-grid">
+      <!-- sidebar table of contents -->
+      <aside class="sidebar">
+        <h4><i class="fas fa-feather-alt"></i> on this page</h4>
+        <ul class="toc-list">
+          <li><a href="#acceptance"><i class="fas fa-angle-right"></i> 1. Acceptance of Terms</a></li>
+          <li><a href="#products"><i class="fas fa-palette"></i> 2. Products & Craftsmanship</a></li>
+          <li><a href="#orders"><i class="fas fa-receipt"></i> 3. Orders & Pricing</a></li>
+          <li><a href="#shipping"><i class="fas fa-truck"></i> 4. Shipping & Kiln Policies</a></li>
+          <li><a href="#returns"><i class="fas fa-undo-alt"></i> 5. Returns & Exchanges</a></li>
+          <li><a href="#intellectual"><i class="fas fa-copyright"></i> 6. Intellectual Property</a></li>
+          <li><a href="#privacy"><i class="fas fa-lock"></i> 7. Privacy & Data</a></li>
+          <li><a href="#limitations"><i class="fas fa-gavel"></i> 8. Limitations of Liability</a></li>
+          <li><a href="#governing"><i class="fas fa-globe-americas"></i> 9. Governing Law</a></li>
+          <li><a href="#changes"><i class="fas fa-pen-fancy"></i> 10. Changes to Terms</a></li>
+        </ul>
+        <div class="highlight-box" style="margin-top: 28px; padding: 16px;">
+          <i class="fas fa-envelope" style="color: var(--ak-clay); margin-right: 8px;"></i> 
+          <span style="font-size: 0.8rem;">legal@aetherkiln.com<br>+1 (212) 555 0872</span>
+        </div>
+      </aside>
+
+      <div class="main-terms">
+        <!-- section 1 -->
+        <div id="acceptance" class="terms-section">
+          <h2><i class="fas fa-check-circle"></i> 1. Acceptance of Terms</h2>
+          <p>Welcome to ÆTHER & KILN (“we,” “us,” “our,” or the “Studio”). By accessing or using our website (aetherkiln.com), making a purchase, or interacting with any of our services, you agree to comply with and be bound by these Terms of Service (“Terms”). If you do not agree to any portion of these Terms, please refrain from using our site or purchasing our goods.</p>
+          <p>These Terms apply to all users, including browsers, customers, merchants, and contributors of content. Our commitment to slow craftsmanship extends to transparent, ethical commerce.</p>
+        </div>
+
+        <div id="products" class="terms-section">
+          <h2><i class="fas fa-palette"></i> 2. Products & Craftsmanship</h2>
+          <p>ÆTHER & KILN offers limited-edition apothecary goods, ceramic vessels, incense blends, and ritual objects. Each piece is often handcrafted by independent artisans; therefore natural variations in color, texture, and size are celebrated as marks of authenticity. Product descriptions on our site aim to reflect these unique characteristics.</p>
+          <p>We reserve the right to discontinue any product at any time. Any stated weight, volume, or dimensions are approximate. All products are subject to availability, and we may limit quantities per order.</p>
+          <div class="highlight-box">
+            <i class="fas fa-leaf"></i> <strong>Ethics pledge:</strong> No animal testing · sustainably sourced materials · plastic-free packaging whenever possible.
+          </div>
+        </div>
+
+        <div id="orders" class="terms-section">
+          <h2><i class="fas fa-receipt"></i> 3. Orders & Pricing</h2>
+          <p>All prices are listed in USD and do not include applicable taxes or shipping fees unless noted. We reserve the right to adjust prices and shipping rates without prior notice. After placing an order, you will receive an email confirmation; however, we reserve the right to refuse or cancel any order for reasons including but not limited to product unavailability, pricing errors, or suspected fraud.</p>
+          <p>If your order is canceled after payment, we will issue a full refund to the original payment method. Payment methods accepted: major credit cards, PayPal, and ÆTHER & KILN gift cards.</p>
+        </div>
+
+        <div id="shipping" class="terms-section">
+          <h2><i class="fas fa-truck"></i> 4. Shipping & Kiln Policies</h2>
+          <p>We ship worldwide from our studio hubs. Estimated delivery times are provided at checkout but are not guaranteed. Shipping costs are calculated based on weight, destination, and carrier. Title to products passes to you upon shipment; we are not liable for delays or losses caused by carriers or customs.</p>
+          <p>For international orders, customers are responsible for all customs duties, taxes, or import fees. Please note that some ceramic objects are fragile — we take extreme care in packaging, but if an item arrives damaged, refer to our returns section below.</p>
+        </div>
+
+        <div id="returns" class="terms-section">
+          <h2><i class="fas fa-undo-alt"></i> 5. Returns & Exchanges</h2>
+          <p>We accept returns of unused, unwashed, and undamaged products within 14 days of delivery. To initiate a return, contact studio@aetherkiln.com. Return shipping costs are borne by the customer unless the item arrived defective or incorrect. Original shipping fees are non-refundable.</p>
+          <p>Due to hygiene reasons, we cannot accept returns on opened apothecary items (incense, oils, balms) unless defective. Exchange requests for alternative pieces depend on current stock levels. Refunds are processed within 10 business days after we receive and inspect the returned item.</p>
+        </div>
+
+        <div id="intellectual" class="terms-section">
+          <h2><i class="fas fa-copyright"></i> 6. Intellectual Property</h2>
+          <p>All content on this website — including but not limited to product photography, branding, copy, illustrations, packaging designs, and the “ÆTHER & KILN” trademark — is our exclusive property or that of our licensors. You may not reproduce, distribute, modify, or create derivative works without our prior written consent.</p>
+          <p>You retain ownership of any content you submit to us (e.g., reviews or social media tags), but you grant us a worldwide, royalty-free license to use, display, and promote that content in connection with our brand.</p>
+        </div>
+
+        <div id="privacy" class="terms-section">
+          <h2><i class="fas fa-lock"></i> 7. Privacy & Data</h2>
+          <p>Your privacy is sacred. Our <strong>Privacy Policy</strong> explains how we collect, use, and protect your personal information. By using our site, you consent to our data practices as described therein. We never sell your data to third parties. We use encrypted payment gateways and secure socket layer (SSL) technology.</p>
+          <p>You may receive marketing emails only after opting in; you can unsubscribe anytime via the link in our emails.</p>
+        </div>
+
+        <div id="limitations" class="terms-section">
+          <h2><i class="fas fa-gavel"></i> 8. Limitations of Liability</h2>
+          <p>To the maximum extent permitted by law, ÆTHER & KILN and its affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our products or website, even if we have been advised of the possibility of such damages. Our total liability for any claim relating to your purchase shall not exceed the amount you paid for the product in question.</p>
+          <p>Some jurisdictions do not allow the exclusion of certain warranties, so some limitations may not apply to you. We do not warrant that our site will be uninterrupted, error-free, or free of viruses.</p>
+        </div>
+
+        <div id="governing" class="terms-section">
+          <h2><i class="fas fa-globe-americas"></i> 9. Governing Law</h2>
+          <p>These Terms shall be governed by and construed in accordance with the laws of the State of New York, without regard to conflict-of-law principles. Any legal action arising from these Terms shall be brought exclusively in the state or federal courts located in Kings County, New York. You consent to personal jurisdiction in those courts.</p>
+          <p>For EU customers, mandatory consumer protections under local law remain unaffected.</p>
+        </div>
+
+        <div id="changes" class="terms-section">
+          <h2><i class="fas fa-pen-fancy"></i> 10. Changes to Terms</h2>
+          <p>We may update these Terms periodically to reflect changes in our practices, legal requirements, or operational needs. The revised version will be indicated by an updated “Last revised” date and will be effective immediately upon posting. We encourage you to review this page regularly. Continued use of the site after changes constitutes acceptance of the modified Terms.</p>
+          <p>If you have any questions regarding these Terms, please reach out to our legal & ethics team at legal@aetherkiln.com or via our contact form.</p>
+        </div>
+
+        <hr>
+        <div class="small-note" style="text-align: center; margin-top: 20px;">
+          <i class="fas fa-fire"></i>  ÆTHER & KILN — where object meets intention. Thank you for being part of our slow commerce community.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>ÆTHER & KILN</h4>
+        <p>Curated objects for grounded living.<br>Brooklyn / Los Angeles / Kyoto</p>
+      </div>
+      <div class="footer-col">
+        
+      </div>
+    </div>
+    <div class="copyright">
+      © 2026 ÆTHER & KILN — all textures reserved · slow living
+    </div>
+  </div>
+</footer>
+
+<div class="back-to-top" id="backToTopBtn">
+  <i class="fas fa-arrow-up"></i>
+</div>
+
+<script>
+  // back to top visibility + smooth scroll for anchors and TOC
+  const backBtn = document.getElementById('backToTopBtn');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      backBtn.classList.add('visible');
+    } else {
+      backBtn.classList.remove('visible');
+    }
+  });
+
+  backBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // smooth scroll for all anchor links (table of contents)
+  document.querySelectorAll('.toc-list a, .terms-section h2 a, a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const hash = this.getAttribute('href');
+      if (hash && hash.startsWith('#') && hash.length > 1) {
+        e.preventDefault();
+        const targetElement = document.querySelector(hash);
+        if (targetElement) {
+          const offset = 90;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.scrollY - offset;
+          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+          history.pushState(null, null, hash);
+        }
+      }
+    });
+  });
+
+  // simple demo: homepage link placeholder (no actual page, just smooth)
+  const homeLink = document.getElementById('homeLink');
+  if(homeLink) {
+    homeLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // adjust sticky sidebar on load 
+  console.log('ÆTHER & KILN · terms page ready — unique binding');
+</script>
+</body>
+</html>

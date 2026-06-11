@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>ÆTHER & KILN · About | The Studio & Our Ethos</title>
+  <!-- modern font -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', monospace;
+      background-color: #FEFCF5;
+      color: #1E2A24;
+      scroll-behavior: smooth;
+    }
+
+    /* brand palette: ÆTHER & KILN */
+    :root {
+      --ak-obsidian: #1A2520;
+      --ak-clay: #C47A5C;
+      --ak-mineral: #4E6B5E;
+      --ak-amber: #E2C7A2;
+      --ak-smoke: #EAE5DB;
+      --ak-stone: #7D8D81;
+      --ak-mist: #D4DDD2;
+      --ak-shadow-sm: 0 6px 14px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0, 0, 0, 0.05);
+      --ak-shadow-md: 0 18px 32px -12px rgba(0, 0, 0, 0.08);
+      --transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* header consistent with brand */
+    .site-header {
+      background: rgba(254, 252, 245, 0.94);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .logo-wrapper {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .brand-mark {
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      background: linear-gradient(130deg, #1A2520 0%, #3C5A4C 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .ampersand {
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--ak-clay);
+      margin: 0 2px;
+    }
+
+    .brand-suffix {
+      font-weight: 500;
+      font-size: 16px;
+      color: var(--ak-mineral);
+      letter-spacing: -0.2px;
+      border-left: 1px solid var(--ak-amber);
+      padding-left: 12px;
+      margin-left: 6px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--ak-obsidian);
+      transition: var(--transition);
+      font-size: 16px;
+    }
+
+    .nav-links a:hover {
+      color: var(--ak-clay);
+    }
+
+    .nav-icons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-icons i {
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--ak-obsidian);
+      transition: var(--transition);
+    }
+
+    .nav-icons i:hover {
+      color: var(--ak-clay);
+    }
+
+    /* about hero section */
+    .about-hero {
+      background: #FDF9F2;
+      padding: 56px 0 48px;
+      border-bottom: 1px solid #f0e7dc;
+      position: relative;
+    }
+
+    .about-title {
+      font-size: clamp(2.2rem, 6vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ak-obsidian);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .about-title i {
+      color: var(--ak-clay);
+      font-size: 2.2rem;
+    }
+
+    .about-badge {
+      background: #EAE0D5;
+      padding: 6px 18px;
+      border-radius: 60px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-left: 8px;
+    }
+
+    .about-sub {
+      max-width: 700px;
+      margin-top: 24px;
+      font-size: 1.2rem;
+      line-height: 1.5;
+      color: #415a4b;
+      border-left: 3px solid var(--ak-clay);
+      padding-left: 24px;
+    }
+
+    /* main content */
+    .about-main {
+      padding: 70px 0 80px;
+    }
+
+    .story-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 64px;
+      align-items: center;
+      margin-bottom: 90px;
+    }
+
+    .story-text {
+      flex: 1.2;
+    }
+
+    .story-text h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--ak-obsidian);
+      letter-spacing: -0.3px;
+    }
+
+    .story-text .lead {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      margin-bottom: 24px;
+      color: #2c4438;
+      font-weight: 500;
+    }
+
+    .story-text p {
+      line-height: 1.65;
+      margin-bottom: 18px;
+      color: #2f423a;
+    }
+
+    .story-image {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .story-image img {
+      width: 100%;
+      border-radius: 36px;
+      box-shadow: var(--ak-shadow-md);
+      transition: transform 0.4s ease;
+    }
+
+    .story-image img:hover {
+      transform: scale(1.01);
+    }
+
+    /* values / pillars */
+    .values-section {
+      background: #FCF9F4;
+      border-radius: 48px;
+      padding: 56px 40px;
+      margin: 40px 0 70px;
+    }
+
+    .values-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    .value-card {
+      flex: 1;
+      min-width: 200px;
+      background: white;
+      border-radius: 28px;
+      padding: 32px 24px;
+      text-align: center;
+      box-shadow: var(--ak-shadow-sm);
+      border: 1px solid #efe6db;
+      transition: var(--transition);
+    }
+
+    .value-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--ak-amber);
+    }
+
+    .value-card i {
+      font-size: 2.5rem;
+      color: var(--ak-clay);
+      margin-bottom: 20px;
+    }
+
+    .value-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+
+    .value-card p {
+      font-size: 0.9rem;
+      color: #5b6e62;
+    }
+
+    /* team / studio members */
+    .team-section {
+      margin: 70px 0 60px;
+    }
+
+    .team-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .team-member {
+      flex: 1;
+      min-width: 220px;
+      text-align: center;
+    }
+
+    .member-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      box-shadow: var(--ak-shadow-sm);
+      border: 3px solid var(--ak-amber);
+      transition: var(--transition);
+    }
+
+    .member-img:hover {
+      transform: scale(1.02);
+      border-color: var(--ak-clay);
+    }
+
+    .team-member h4 {
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .team-member .role {
+      color: var(--ak-clay);
+      font-weight: 500;
+      margin: 6px 0;
+    }
+
+    .team-member .bio {
+      font-size: 0.85rem;
+      color: #5b6e62;
+      max-width: 260px;
+      margin: 0 auto;
+    }
+
+    /* studio imagery */
+    .studio-spotlight {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin: 50px 0;
+    }
+    .studio-spotlight img {
+      flex: 1;
+      min-width: 200px;
+      border-radius: 28px;
+      object-fit: cover;
+      height: 280px;
+      width: 100%;
+      box-shadow: var(--ak-shadow-sm);
+    }
+
+    /* footer */
+    .footer {
+      background: #1C2621;
+      color: #ddd9cf;
+      padding: 48px 0 32px;
+    }
+
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h4 {
+      color: var(--ak-amber);
+      margin-bottom: 18px;
+      font-weight: 500;
+    }
+
+    .footer-col p, .footer-col a {
+      color: #bcb7ab;
+      text-decoration: none;
+      line-height: 1.6;
+    }
+
+    .footer-col a:hover {
+      color: var(--ak-clay);
+    }
+
+    .social-icons i {
+      font-size: 1.4rem;
+      margin-right: 16px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .copyright {
+      text-align: center;
+      border-top: 1px solid #2f3d36;
+      padding-top: 28px;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 800px) {
+      .container {
+        padding: 0 20px;
+      }
+      .values-section {
+        padding: 36px 20px;
+      }
+      .story-grid {
+        flex-direction: column;
+      }
+      .nav-links {
+        gap: 18px;
+      }
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: var(--ak-obsidian);
+      color: white;
+      width: 46px;
+      height: 46px;
+      border-radius: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 99;
+      box-shadow: var(--ak-shadow-md);
+      transition: var(--transition);
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--ak-clay);
+      transform: translateY(-3px);
+    }
+
+    .signature-quote {
+      font-style: italic;
+      font-weight: 400;
+      background: #F5EFE6;
+      padding: 28px 32px;
+      border-radius: 40px;
+      margin: 48px 0;
+      text-align: center;
+      font-size: 1.2rem;
+      color: #2c3a34;
+      border-left: 6px solid var(--ak-clay);
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-flex">
+    <div class="logo-wrapper" id="homeLink">
+      <span class="brand-mark">ÆTHER</span>
+      <span class="ampersand">&</span>
+      <span class="brand-mark">KILN</span>
+      <span class="brand-suffix">apothecary & objects</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="about.html">About Us</a>
+    </div>
+    <div class="nav-icons">
+      <i class="fas fa-search"></i>
+      <i class="fas fa-user"></i>
+      <i class="fas fa-shopping-bag"></i>
+    </div>
+  </div>
+</header>
+
+<section class="about-hero">
+  <div class="container">
+    <div class="about-title">
+      <i class="fas fa-mortar-board"></i> 
+      <span>The story of ÆTHER & KILN</span>
+      <span class="about-badge">since 2024 · slow made</span>
+    </div>
+    <div class="about-sub">
+      Objects forged at the intersection of earth, ether, and intention. We build vessels for ritual, not just decoration.
+    </div>
+  </div>
+</section>
+
+<div class="about-main">
+  <div class="container">
+    <!-- first story block: origins -->
+    <div class="story-grid">
+      <div class="story-text">
+        <h2>Where kiln meets spirit</h2>
+        <p class="lead">ÆTHER & KILN was born from a quiet rebellion against mass production — a return to tactile, soulful craftsmanship.</p>
+        <p>Founded in the Hudson Valley by ceramicist Wren Salter and alchemist Elara Voss, our studio began as a shared fire: a wood‑kiln in a repurched barn, surrounded by wild mint and clay beds. We believed that objects used daily — a candle holder, an incense tray, a pourer for oils — should carry the memory of human hands.</p>
+        <p>Today, we collaborate with independent potters, botanical distillers, and metalworkers across three continents. Each piece is either made in‑house or sourced from small ateliers that share our ethos: fair wages, low‑waste production, and raw beauty over polish.</p>
+      </div>
+      <div class="story-image">
+        <img src="https://picsum.photos/id/176/600/500" alt="Ceramic artist's hands shaping clay on a potter's wheel, warm studio light">
+      </div>
+    </div>
+
+    <!-- values / pillars section (unique) -->
+    <div class="values-section">
+      <h2 style="text-align: center; font-size: 1.9rem;">Our three living pillars</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <i class="fas fa-hand-sparkles"></i>
+          <h3>Radical slowness</h3>
+          <p>We never rush a firing or a tincture. Small batches, seasonal launches, and a deep respect for natural curing times.</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-tree"></i>
+          <h3>Earth consciousness</h3>
+          <p>Plastic‑free shipping, reclaimed wood packaging, and wild‑foraged botanicals. Our kiln runs on clean energy.</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-hand-holding-heart"></i>
+          <h3>Radical transparency</h3>
+          <p>Every maker’s name, every material origin. We publish our supply chain and donate 2% of profits to land back initiatives.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- team / studio keepers -->
+    <div class="team-section">
+      <h2 style="text-align: center; font-size: 1.9rem;">The keepers of the kiln</h2>
+      <p style="text-align: center; max-width: 600px; margin: 12px auto 0; color: #5b6e62;">A small, multidisciplinary crew of ceramicists, herbalists, and storytellers.</p>
+      <div class="team-grid">
+        <div class="team-member">
+          <img class="member-img" src="https://picsum.photos/id/64/300/300" alt="Wren Salter portrait">
+          <h4>Wren Salter</h4>
+          <div class="role">Founder / Master Potter</div>
+          <p class="bio">Wren shapes every prototype with her hands — she believes the fingerprint is the ultimate signature.</p>
+        </div>
+        <div class="team-member">
+          <img class="member-img" src="https://picsum.photos/id/29/300/300" alt="Elara Voss portrait">
+          <h4>Elara Voss</h4>
+          <div class="role">Alchemist & Formulator</div>
+          <p class="bio">Elara blends rare essential oils, resins, and tinctures into our apothecary line — always small‑batch.</p>
+        </div>
+        <div class="team-member">
+          <img class="member-img" src="https://picsum.photos/id/26/300/300" alt="Maya Chen portrait">
+          <h4>Maya Chen</h4>
+          <div class="role">Community & Ritual Lead</div>
+          <p class="bio">Maya curates our journal, studio workshops, and the annual “Kiln Fire Residency”.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- studio imagery & process -->
+    <div class="studio-spotlight">
+      <img src="https://picsum.photos/id/159/500/400" alt="Wood-fired kiln glowing at dusk">
+      <img src="https://picsum.photos/id/40/500/400" alt="Apothecary table with dried herbs and glass vessels">
+      <img src="https://picsum.photos/id/124/500/400" alt="Finished ceramic pieces on a raw wooden shelf">
+    </div>
+
+    <div class="signature-quote">
+      <i class="fas fa-quote-left" style="color: var(--ak-clay); margin-right: 12px;"></i> 
+      We don’t design for trends — we craft for altars, morning rituals, and the quiet corners of a home. 
+      <i class="fas fa-quote-right" style="color: var(--ak-clay); margin-left: 8px;"></i>
+      <div style="margin-top: 16px; font-size: 0.9rem;">— ÆTHER & KILN manifesto, 2026</div>
+    </div>
+
+    <!-- press & recognition snippet -->
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; align-items: center; border-top: 1px solid #ede3d8; padding-top: 40px; margin-top: 20px;">
+      <div style="font-weight: 500; letter-spacing: -0.2px;">Featured in: <span style="color: var(--ak-clay);">Kinfolk · Cereal · Monocle · Vogue Living</span></div>
+      <div><i class="fas fa-certificate" style="color: var(--ak-mineral);"></i> B Corp pending · 1% for the Planet member</div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>ÆTHER & KILN</h4>
+        <p>Curated objects for grounded living.<br>Brooklyn / Los Angeles / Kyoto</p>
+      </div>
+      <div class="footer-col">
+        
+      </div>
+    </div>
+    <div class="copyright">
+      © 2026 ÆTHER & KILN — all textures reserved · slow living & honest craft
+    </div>
+  </div>
+</footer>
+
+<div class="back-to-top" id="backToTopBtn">
+  <i class="fas fa-arrow-up"></i>
+</div>
+
+<script>
+  // back to top visibility + smooth scroll
+  const backBtn = document.getElementById('backToTopBtn');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      backBtn.classList.add('visible');
+    } else {
+      backBtn.classList.remove('visible');
+    }
+  });
+  backBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // subtle home link simulation
+  const homeLink = document.getElementById('homeLink');
+  if(homeLink) {
+    homeLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // interactivity: any nav link placeholder can show a toast message to mimic brand (optional)
+  const navLinks = document.querySelectorAll('.nav-links a, .nav-icons i');
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      if (link.tagName === 'A' && link.getAttribute('href') === '#') {
+        e.preventDefault();
+        // simple feedback in console, but no page reload
+        console.log(`ÆTHER & KILN: ${link.innerText || 'icon'} navigation (demo)`);
+      }
+    });
+  });
+</script>
+</body>
+</html>
